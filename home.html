@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.heading {
+  text-align: center;
+  background: #e84393;
+}
+
+.heading h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.heading p {
+  color: #fff;
+  padding-top: .7rem;
+  font-size: 1.7rem;
+}
+
+.heading p a {
+  color: #fff;
+}
+
+.heading p a:hover {
+  color: #333;
+}
+
+.title {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .8rem 2.8rem;
+  font-size: 1.7rem;
+  color: #333;
+  border: 0.2rem solid #333;
+  background: none;
+  cursor: pointer;
+  border-radius: .5rem;
+}
+
+.btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 9%;
+}
+
+.header .logo {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: bolder;
+  margin-right: auto;
+}
+
+.header .navbar ul {
+  list-style: none;
+}
+
+.header .navbar ul li {
+  position: relative;
+  float: left;
+}
+
+.header .navbar ul li:hover ul {
+  display: block;
+}
+
+.header .navbar ul li a {
+  font-size: 1.7rem;
+  color: #666;
+  padding: 2rem;
+  display: block;
+}
+
+.header .navbar ul li a:hover {
+  background: #eee;
+}
+
+.header .navbar ul li ul {
+  position: absolute;
+  left: 0;
+  width: 20rem;
+  background: #fff;
+  display: none;
+}
+
+.header .navbar ul li ul li {
+  width: 100%;
+}
+
+.header .icons div,
+.header .icons a {
+  font-size: 2.5rem;
+  color: #333;
+  cursor: pointer;
+  margin-left: 2rem;
+}
+
+.header .icons div:hover,
+.header .icons a:hover {
+  color: #e84393;
+}
+
+.header .search-form {
+  position: absolute;
+  top: 99%;
+  left: 0;
+  right: 0;
+  border-top: 0.2rem solid #333;
+  background: #fff;
+  height: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.header .search-form.active {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.header .search-form input {
+  width: 100%;
+  height: 100%;
+  padding-right: 1rem;
+  font-size: 1.7rem;
+  color: #666;
+  text-transform: none;
+}
+
+.header .search-form label {
+  font-size: 2.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.header .search-form label:hover {
+  color: #e84393;
+}
+
+#menu-btn {
+  display: none;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+    opacity: 0;
+  }
+}
+
+.home {
+  padding: 0;
+  position: relative;
+}
+
+.home .slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 60vh;
+  padding: 2rem 7%;
+  background-size: cover !important;
+  background-position: center !important;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+.home .slide.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home .slide .content span {
+  color: #333;
+  display: block;
+  font-size: 2rem;
+  -webkit-animation: fadeIn .4s linear .2s backwards;
+          animation: fadeIn .4s linear .2s backwards;
+}
+
+.home .slide .content h3 {
+  color: #333;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  font-size: 6rem;
+  -webkit-animation: fadeIn .4s linear .4s backwards;
+          animation: fadeIn .4s linear .4s backwards;
+}
+
+.home .slide .content .btn {
+  -webkit-animation: fadeIn .4s linear .6s backwards;
+          animation: fadeIn .4s linear .6s backwards;
+}
+
+.home #next-slide,
+.home #prev-slide {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  height: 6rem;
+  width: 6rem;
+  line-height: 5.5rem;
+  font-size: 4rem;
+  color: #333;
+  border: 0.2rem solid #333;
+  background: #fff;
+  border-radius: .5rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.home #next-slide:hover,
+.home #prev-slide:hover {
+  background: #333;
+  color: #fff;
+}
+
+.home #prev-slide {
+  right: 9rem;
+}
+
+.banner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(31rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+  gap: 1.5rem;
+}
+
+.banner .box {
+  position: relative;
+  height: 30rem;
+  overflow: hidden;
+  border-radius: .5rem;
+}
+
+.banner .box:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.banner .box img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.banner .box .content {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.banner .box .content span {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.banner .box .content h3 {
+  font-size: 2rem;
+  color: #333;
+  padding-top: 1rem;
+}
+
+.banner .box .content .btn {
+  padding: .6rem 2rem;
+  font-size: 1.5rem;
+}
+body {
+  
+  background-color: rgb(202, 219, 219);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+img {
+  border: 1px solid #ddd;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+  width: 500px;
+}
+
+
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px 26px;
+    text-decoration: none;
+  }
+  
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .split {
+  height: 250%;
+  width: 90%;
+
+  z-index: 2;
+  top: 0;
+  overflow-x: hidden;
+  padding: 50px;
+}
+
+.left {
+  left: 0;
+  background-color: rgba(208, 208, 226, 0.536);
+}
+
+.right {
+  right: 0;
+  background-color:  rgba(29, 29, 35, 0.696);;
+}
+
+
+
+.column {
+  float: auto;
+  width: 20%;
+  padding: 0px;
+}
+
+
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.container {
+  position: relative;
+  display: none;
+}
+
+
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.buy-button{
+  background-color: azure;
+  border: none;
+  padding: 1em;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- custom js file link  -->
+    <script src="js/script.js" defer></script>
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="home.html" class="logo"> EYE NATION </a>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html">concepts</a></li>
+            <li><a href="products.html">brands</a></li>
+            <li><a href="#">category </a>
+                
+            </li>
+            <li><a href="contact.html">catalog</a></li>
+            <li><a href="#">accessories</a></li>
+                
+                    <li><a href="login.html">login</a></li>
+                    <li><a href="register.html">register</a></li>
+                
+            
+        
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <a href="cart.html" class="fas fa-shopping-cart"></a>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" name="" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts      -->
+
+<section class="home">
+
+    <div class="slide active" style="background: url(https://www.gangareyenation.com/wp-content/uploads/2015/05/1920x650_Eyewear1.jpg) no-repeat;">
+        <div class="content">
+            <span>Unbelievable low prices</span>
+            <h2>GLASSES FOR MENS AND WOMENS </h2>
+            <a href="#" class="btn">Buy now</a>
+        </div>
+    </div>
+
+   
+    <div id="next-slide" onclick="next()" class="fas fa-angle-right"></div>
+    <div id="prev-slide" onclick="prev()" class="fas fa-angle-left"></div>
+
+</section>
+
+<!-- home section ends     -->
+
+<!-- banner section starts  -->
+
+<section class="banner">
+
+    <div class="box">
+        <img src="https://media.istockphoto.com/id/1319850252/photo/headshot-of-excited-elegant-woman.jpg?s=612x612&w=0&k=20&c=aI2mhTep6EZCYAp5ljOkzeXIws_mraHbrbl4wWddViY=" alt="">
+        <div class="content">
+            <span>10 YEARS VISION</span>
+            <h3>Reminisce with us</h3>
+            <a href="#" class="btn">shop now</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="https://indianaeyeclinic.com/wp-content/uploads/2018/06/glasses-page-photo.jpg" alt="">
+        <div class="content">
+            <span>FIND THE BEST FIT</span>
+            <h3>Take me to the guide</h3>
+            <a href="#" class="btn">shop now</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="https://sites.psu.edu/siowfa16/files/2016/11/fashion-glasses-1pyhxci.png" alt="">
+        <div class="content">
+            <span>special offer</span>
+            <h3>upto 50% off</h3>
+            <a href="#" class="btn">shop now</a>
+        </div>
+    </div>
+    <h1>FEATURED PRODUCTS</h1>
+    <div class="row">
+      <div class="column">
+        <img src="https://freesampleinindia.com/wp-content/uploads/2021/01/61fRsxL8VpL._UX466_.jpg" style="width:250%" onclick="myFunction(this);">
+        <div><button class="buy button">Buy Now</button></div>
+      </div>
+      <div class="column">
+        <img src="https://tiimg.tistatic.com/fp/1/005/611/spectacles-frame-in-all-color-801.jpg" style="width:500%" onclick="myFunction(this);">
+        <div><button class="buy button">Buy Now</button></div>
+      </div>
+      <div class="column">
+        <img src="https://static.zennioptical.com/production/products/general/32/16/3216916d.jpg" style="width:250%" onclick="myFunction(this);">
+        <div><button class="buy button">Buy Now</button></div>
+      </div>
+      
+  
+    </div>
+    <div class="split left">
+        <h2>SPECIAL OFFER</h2>
+        <span>READING GLASSES</span>
+        <p>we are on independent eyewear brand committed to creating high quality,handmade eyewear we are an independent eyewear to creating highquality,handmade eyewear</p>
+      </div>
+    </div>
+</section>
+
+<!-- banner section ends -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>CONTACT US</h3>
+            <a href="home.html"> <i class="fas fa-angle-right"></i> home</a>
+            <a href="products.html"> <i class="fas fa-angle-right"></i> products</a>
+            <a href="about.html"> <i class="fas fa-angle-right"></i> about</a>
+            <a href="blogs.html"> <i class="fas fa-angle-right"></i> blogs</a>
+            <a href="contact.html"> <i class="fas fa-angle-right"></i> contact</a>
+            <a href="login.html"> <i class="fas fa-angle-right"></i> login</a>
+            <a href="register.html"> <i class="fas fa-angle-right"></i> register</a>
+            <a href="cart.html"> <i class="fas fa-angle-right"></i> cart</a>
+        </div>
+
+        <div class="box">
+            <h3>MY ACCOUNT</h3>
+            <a href="#"> <i class="fas fa-angle-right"></i> my account </a>
+            <a href="#"> <i class="fas fa-angle-right"></i> my order </a>
+            <a href="#"> <i class="fas fa-angle-right"></i> my wishlist </a>
+            <a href="#"> <i class="fas fa-angle-right"></i> terms of use </a>
+            <a href="#"> <i class="fas fa-angle-right"></i> privacy policy </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-github"></i> github </a>
+        </div>
+
+        <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <form action="">
+                <input type="email" placeholder="enter your emal">
+                <input type="submit" value="FOLLOW US" class="btn">
+            </form>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>eyenationgroup</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+</body>
+</html>
